@@ -6,7 +6,7 @@ RUN apt-get install -y git curl build-essential make gcc wget ca-certificates
 
 RUN mkdir /data /logs /elasticsearch
 
-RUN wget  --progress=dot:mega -O - https://s3-us-west-1.amazonaws.com/relateiq-build-resources/elasticsearch-1.0.3.tar.gz | tar -zx -C /elasticsearch --strip-components=1
+RUN wget --progress=dot:mega -O - https://s3-us-west-1.amazonaws.com/relateiq-build-resources/elasticsearch-1.1.2.tar.gz | tar -zx -C /elasticsearch --strip-components=1
 
 RUN /elasticsearch/bin/plugin -u https://s3-us-west-1.amazonaws.com/relateiq-build-resources/elasticsearch-head.zip -install head
 RUN /elasticsearch/bin/plugin -u https://s3-us-west-1.amazonaws.com/relateiq-build-resources/elasticsearch-bigdesk-v2.4.0.zip -install bigdesk
