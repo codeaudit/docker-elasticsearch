@@ -8,6 +8,8 @@ RUN mkdir /data /logs /elasticsearch
 
 RUN wget --progress=dot:mega -O - https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.6.tar.gz | tar -zx -C /elasticsearch --strip-components=1
 
+RUN echo "script.disable_dynamic: false" >> /elasticsearch/config/elasticsearch.yml
+
 RUN /elasticsearch/bin/plugin -install mobz/elasticsearch-head
 RUN /elasticsearch/bin/plugin -install lukas-vlcek/bigdesk/2.4.0
 RUN /elasticsearch/bin/plugin -install elasticsearch/elasticsearch-mapper-attachments/2.3.2
