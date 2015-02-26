@@ -1,4 +1,4 @@
-FROM relateiq/oraclejava7
+FROM relateiq/oracle-java8
 
 # elasticsearch
 RUN apt-get update
@@ -6,7 +6,7 @@ RUN apt-get install -y git curl build-essential make gcc wget ca-certificates
 
 RUN mkdir /data /logs /elasticsearch
 
-RUN wget --progress=dot:mega -O - https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.6.tar.gz | tar -zx -C /elasticsearch --strip-components=1
+RUN wget --progress=dot:mega -O - https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.8.tar.gz | tar -zx -C /elasticsearch --strip-components=1
 
 RUN echo "script.disable_dynamic: false" >> /elasticsearch/config/elasticsearch.yml
 
