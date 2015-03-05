@@ -1,8 +1,7 @@
 FROM relateiq/oracle-java8
 
 # elasticsearch
-RUN apt-get update
-RUN apt-get install -y git curl build-essential make gcc wget ca-certificates
+RUN apt-get update && apt-get install -y git curl build-essential make gcc wget ca-certificates
 
 RUN mkdir /data /logs /elasticsearch
 
@@ -18,7 +17,6 @@ RUN /elasticsearch/bin/plugin -install lmenezes/elasticsearch-kopf
 RUN /elasticsearch/bin/plugin -install polyfractal/elasticsearch-inquisitor
 RUN /elasticsearch/bin/plugin -install karmi/elasticsearch-paramedic
 RUN /elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
-RUN /elasticsearch/bin/plugin -install elasticsearch/marvel/latest
 
 VOLUME [ "/logs", "/data" ]
 
